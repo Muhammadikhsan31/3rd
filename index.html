@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surat Cinta Rose Gold untukmu ✨</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <style>
+        /* ---------------------------------------------------- */
+        /* 1. STYLING DASAR & PALET WARNA (ROSE GOLD & SOFT PINK) */
+        /* ---------------------------------------------------- */
+        :root {
+            /* Definisi Warna Rose Gold */
+            --rose-gold-light: #fbecec;
+            --rose-gold-medium: #e7a49f;
+            --rose-gold-dark: #b86d69;
+            --text-color: #3f3536; /* Coklat Tua/Maroon Soft */
+            --paper-color: #fcf8f7; /* Kertas Putih Gading */
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Serif', serif; 
+            background-color: var(--rose-gold-light);
+            color: var(--text-color);
+            overflow-x: hidden;
+            text-align: center;
+        }
+
+        /* Running Text (Marquee) - Dibuat lebih elegan */
+        .marquee-container {
+            background-color: var(--rose-gold-dark); /* Rose Gold Gelap */
+            color: white;
+            padding: 12px 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6em;
+            font-weight: 700;
+            letter-spacing: 3px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: sticky; /* Tetap di atas saat scroll */
+            top: 0;
+            z-index: 20;
+        }
+
+        /* ---------------------------------------------------- */
+        /* 2. AMPLOP DAN ANIMASI */
+        /* ---------------------------------------------------- */
+        .envelope-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 50px); 
+            transition: all 1s ease-in-out;
+            cursor: pointer;
+            position: relative;
+            z-index: 10;
+        }
+
+        .envelope {
+            width: 350px;
+            height: 220px;
+            background-color: var(--rose-gold-medium);
+            position: relative;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); /* Bayangan lebih dramatis */
+            transition: all 1s ease-in-out;
+        }
+
+        /* Penutup Amplop (Flap) */
+        .envelope:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-top: 110px solid var(--rose-gold-dark); 
+            border-right: 175px solid transparent;
+            border-left: 175px solid transparent;
+            z-index: 2;
+            transform-origin: top;
+            transition: transform 0.7s cubic-bezier(0.5, 0, 0.5, 1); /* Transisi lebih halus */
+        }
+        
+        /* Animasi Buka Tutup Amplop */
+        .envelope.open-flap:before {
+            transform: rotateX(180deg); 
+        }
+
+        .click-message {
+            position: absolute; 
+            bottom: 12vh; 
+            color: var(--rose-gold-dark);
+            font-weight: bold;
+            font-style: italic;
+            opacity: 1;
+            transition: opacity 0.5s;
+        }
+
+        .envelope-wrapper.hidden {
+            height: 0;
+            opacity: 0;
+            pointer-events: none;
+            margin-bottom: -220px; 
+            transition: height 1s ease-in-out, opacity 1s ease-in-out, margin-bottom 1s ease-in-out; 
+        }
+        
+        /* ---------------------------------------------------- */
+        /* 3. KERTAS SURAT (THE LETTER) */
+        /* ---------------------------------------------------- */
+        .letter {
+            width: 85%;
+            max-width: 800px;
+            margin: 40px auto; /* Margin atas bawah agar tidak menempel */
+            padding: 60px 50px;
+            background-color: var(--paper-color);
+            border-radius: 20px;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.2); 
+            text-align: left;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1.8s ease-out, transform 1.8s ease-out; /* Transisi lebih lambat dan elegan */
+            min-height: 700px;
+            overflow: hidden;
+            display: none; 
+            border: 1px solid var(--rose-gold-medium); /* Border elegan */
+        }
+
+        .letter.show-letter {
+            opacity: 1;
+            transform: translateY(0);
+            display: block; 
+            padding-bottom: 70px;
+        }
+
+        /* Styling Isi Surat */
+        .letter h1 {
+            color: var(--rose-gold-dark); 
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            font-size: 3em;
+            margin-bottom: 40px;
+            border-bottom: 4px double var(--rose-gold-medium); /* Garis ganda elegan */
+            padding-bottom: 15px;
+            font-weight: 900;
+        }
+
+        .letter p {
+            line-height: 2; /* Spasi baris yang lebar agar rapi dan mudah dibaca */
+            font-size: 1.15em;
+            margin-bottom: 25px;
+            color: var(--text-color); 
+            text-indent: 40px; /* Indentasi rapi */
+        }
+        
+        /* Highlight Peta Visual (Rose Gold) */
+        .highlight {
+            color: white; 
+            font-weight: bold;
+            background-color: var(--rose-gold-medium);
+            padding: 3px 8px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .signature {
+            margin-top: 50px;
+            text-align: right;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.4em;
+            color: var(--rose-gold-dark); 
+            font-weight: 700;
+        }
+
+        /* ---------------------------------------------------- */
+        /* 4. MEDIA QUERIES (RESPONSIVE) */
+        /* ---------------------------------------------------- */
+
+        /* Mode Mobile (Maksimal 600px) */
+        @media (max-width: 600px) {
+            
+            .marquee-container {
+                font-size: 1.3em;
+                padding: 10px 0;
+            }
+
+            .envelope {
+                width: 280px;
+                height: 180px;
+            }
+
+            .envelope:before {
+                border-top: 90px solid var(--rose-gold-dark);
+                border-right: 140px solid transparent;
+                border-left: 140px solid transparent;
+            }
+
+            .letter {
+                width: 90%; 
+                padding: 30px 20px;
+                margin-top: 20px;
+                min-height: 400px;
+            }
+
+            .letter h1 {
+                font-size: 2em;
+                margin-bottom: 20px;
+            }
+
+            .letter p {
+                font-size: 1em;
+                line-height: 1.8;
+                text-indent: 20px;
+            }
+
+            .signature {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="marquee-container">
+        <marquee direction="left">
+            ✨ HAPPY 3RD ANNIVERSARY MY LOVE! KITA SELAMANYA! ❤️
+        </marquee>
+    </div>
+
+    <div class="envelope-wrapper" id="envelopeWrapper">
+        <div class="envelope" onclick="openEnvelope()">
+            <div style="position: absolute; top: 70px; left: 0; right: 0; text-align: center; z-index: 1; color: white; font-size: 3.5em; text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);">
+                💎
+            </div>
+        </div>
+        <p class="click-message" id="clickMessage">*Sentuh Amplop ini, Sayang*</p>
+    </div>
+
+    <div class="letter" id="theLetter">
+        <h1>Pesan Hati dari Seseorang yang Mencintaimu</h1>
+
+        <p>
+Untuk Fauziyah Fikriyatun Nabilah tersayang,
+
+        </p>
+                <p>
+Alhamdulillah ya Ayaang, sungguh tidak terasa, sudah tiga tahun kita lewati bersama. Waktu berjalan begitu cepat, dan tiga tahun ini penuh dengan kenangan indah, canda tawa, dan tentunya, penuh cinta yang makin dalam. Kamu benar-benar anugerah terindah yang aku miliki.
+
+        </p>
+                <p>
+Aku mau bilang terima kasih banyak karena kamu sudah mau menemui aku sejak kita pertama kali bertemu di bangku kuliah, dan kita bisa sampai detik ini, tanggal 22 November 2025. Aku juga berterima kasih sudah mau sabar, membantu, dan mendukungku.
+
+        </p>
+                <p>
+ 
+Ayaang, dengan segala ketulusan, aku minta maaf jika aku masih sering membuat kesalahan, membuatmu emosi, dan sering kurang peka terhadap perasaanmu. Aku juga menyesal karena seringkali tidak bisa menepati janji-janji yang kuucapkan, maafkan aku. Aku mau Hari Jadi kita yang ke-3 ini bisa menjadi babak baru yang terbaik untuk kita berdua.
+
+        </p>
+        <p>
+         Mari kita fokus bersama untuk masa depan. Mari kita syukuri keadaan kita saat ini sambil lebih memohon agar semua menjadi lebih baik, lebih mudah, dan lebih nyaman. Aku berharap, setelah lulus kuliah nanti, jalan hidup kita menjadi semakin baik dan kita bisa segera mewujudkan semua mimpi, termasuk fokus mencari pekerjaan dan meniti karir yang terbaik.
+
+        </p>
+        <p>
+          Terima kasih sudah memilih setia menemani aku sampai hubungan kita yang ke-3 tahun ini ya, Ayaang. Aku minta maaf juga kalau aku sering bikin kamu bete atau kesal. Oiya, satu lagi: hadiah untuk hari jadi hubungan yang ke-3 tahun ini menyusul ya Ayaang, nanti pasti aku kasih!
+
+        </p>
+        <p>
+            Aku berharap dan berdoa semoga kita berjodoh, agar takdir bisa mempertemukan kita lagi setelah kita lulus, dan semoga kisah kita ini makin hari makin keren, makin bahagia, dan cintanya makin besar! Happy Anniversary, Cintaku! Aku sayang kamu banget."
+
+        </p>
+        <p>
+            Selamat *Anniversary* ke-3, Sayang. Kamu adalah rumah bagiku.
+        </p>
+        <div class="signature">
+            Selamanya Milikmu,<br>
+            
+Ikhsan Sidiq
+        </div>
+    </div>
+
+    <script>
+        function openEnvelope() {
+            const envelope = document.querySelector('.envelope');
+            const envelopeWrapper = document.getElementById('envelopeWrapper');
+            const theLetter = document.getElementById('theLetter');
+            const clickMessage = document.getElementById('clickMessage');
+            
+            // Sembunyikan pesan klik
+            clickMessage.style.opacity = '0';
+
+            // 1. Mulai animasi membuka tutup amplop
+            envelope.classList.add('open-flap'); 
+            
+            // 2. Tunda sebentar, lalu tampilkan surat dan sembunyikan amplop
+            setTimeout(() => {
+                
+                // Tampilkan surat
+                theLetter.classList.add('show-letter');
+                
+                // Gulirkan ke atas surat agar terlihat langsung
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+
+                // Sembunyikan wrapper amplop setelah surat muncul
+                setTimeout(() => {
+                    envelopeWrapper.classList.add('hidden');
+                }, 500); 
+                
+            }, 750); // Jeda sedikit lebih lama agar animasi amplop terlihat
+        }
+    </script>
+
+</body>
+</html>
